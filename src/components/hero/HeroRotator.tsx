@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
@@ -57,7 +58,10 @@ export default function HeroRotator() {
             className="absolute inset-0"
             initial={{ scale: 1.06, x: 0, y: 0 }}
             animate={drift}
-            transition={{ duration: reduceMotion ? 0 : 10.5, ease: [0.22, 1, 0.36, 1] }}
+            transition={{
+              duration: reduceMotion ? 0 : 10.5,
+              ease: [0.22, 1, 0.36, 1],
+            }}
           >
             <Image
               src={current.src}
@@ -71,43 +75,57 @@ export default function HeroRotator() {
 
           {/* Luxury overlays */}
           <div className="absolute inset-0 bg-black/35" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/20 to-black/10" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/25 to-black/10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/15 to-transparent" />
+
+          {/* soft gold trace */}
+          <div className="absolute inset-0 opacity-70 bg-[radial-gradient(900px_520px_at_20%_18%,rgba(201,162,77,0.12),transparent_60%)]" />
         </motion.div>
       </AnimatePresence>
 
-      {/* Content pinned to top */}
-      <div className="relative z-10 h-full flex items-center">
-        <div className="px-6 md:px-14 lg:px-20 mt-[25vh]">
-          {/* Top strapline */}
-          <p className="uppercase tracking-[0.34em] text-white/70 text-[10px] md:text-xs">
-            Real Estate · Renewable Energy · Governance
-          </p>
+      {/* Content */}
+      <div className="relative z-10 min-h-[120vh]">
+        <div className="px-6 md:px-14 lg:px-20">
+          {/* Lowered placement (keeps heads safe, feels premium) */}
+          <div className="pt-[40vh] md:pt-[44vh] lg:pt-[46vh] max-w-5xl">
+            {/* Strapline */}
+            <p className="uppercase tracking-[0.34em] text-white/70 text-[10px] md:text-xs">
+              Real Estate · Renewable Energy · Governance
+            </p>
 
-          {/* Name + designation, aligned and intentional */}
-          <div className="mt-6 flex items-end gap-4 flex-wrap">
-            <h1 className="font-serif tracking-wide text-white leading-[0.95] text-4xl md:text-6xl lg:text-7xl">
-              DR. BILLY OKOYE
-            </h1>
+            {/* Name + GRI (bigger + intentional) */}
+            <div className="mt-6 flex items-end gap-4 flex-wrap">
+              <h1 className="font-serif tracking-wide text-white leading-[0.95] text-4xl md:text-6xl lg:text-7xl">
+                DR. BILLY OKOYE
+              </h1>
 
-            <span className="mb-[6px] md:mb-[10px] uppercase tracking-[0.22em] text-[#C9A24D] text-sm md:text-base lg:text-lg">
-              – GRI
-            </span>
-          </div>
+              <span className="mb-[6px] md:mb-[10px] inline-flex items-center">
+                <span className="h-px w-8 md:w-10 bg-[#C9A24D]/70 mr-3" />
+                <span className="uppercase tracking-[0.22em] text-[#C9A24D] text-base md:text-lg lg:text-xl">
+                  GRI
+                </span>
+              </span>
+            </div>
 
-          <p className="mt-4 text-white/70 italic text-base md:text-lg">
-            I build what lasts.
-          </p>
+            <p className="mt-4 text-white/70 italic text-base md:text-lg">
+              I build what lasts.
+            </p>
 
-          <div className="mt-9">
-            <button className="border border-[#C9A24D]/80 px-10 py-4 uppercase tracking-[0.26em] text-xs text-[#C9A24D] hover:bg-[#C9A24D]/10 transition">
-              Request Private Consultation
-            </button>
+            {/* CTAs */}
+            <div className="mt-10 flex flex-wrap items-center gap-4">
+              <button className="border border-[#C9A24D]/80 px-10 py-4 rounded-full uppercase tracking-[0.26em] text-[11px] text-[#C9A24D] hover:bg-[#C9A24D]/10 transition">
+                Request Private Consultation
+              </button>
+
+              <Link
+                href="/about"
+                className="border border-white/15 px-10 py-4 rounded-full uppercase tracking-[0.26em] text-[11px] text-white/80 hover:border-[#C9A24D]/35 hover:bg-white/[0.03] transition"
+              >
+                About
+              </Link>
+            </div>
           </div>
         </div>
-
-        {/* Scroll cue, stays lower */}
-        
       </div>
     </section>
   );
