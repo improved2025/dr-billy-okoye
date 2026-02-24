@@ -1,24 +1,24 @@
 import Image from "next/image";
 
 const orgs = [
-  // Added (requested)
-  { name: "Businessmen Fellowship", src: "/images/bf-logo.png" },
-  { name: "Awkuzu Cultural Association", src: "/images/aca-logo.png" },
-  {
-    name: "Mid-Atlantic Government Recovery Agency Corporation",
-    src: "/images/mid-logo.png",
-  },
-
-  // Existing
-  { name: "Sold 100 Real Estate Inc", src: "/images/sold-logo.png" },
-  { name: "BMO LLC General Contractors", src: "/images/bmo-logo.png" },
-  { name: "Sold 100 Gives Back Foundation", src: "/images/giveback-logo.png" },
-  { name: "Autograph Solar", src: "/images/auto-logo.png" },
-  { name: "United Africa Advisory Board", src: "/images/uaab-logo.png" },
   {
     name: "Maryland National Capital Park and Planning Commission - M-NCPPC",
     src: "/images/mncppc-logo.png",
   },
+  { name: "Sold 100 Real Estate Inc", src: "/images/sold-logo.png" },
+  { name: "BMO LLC General Contractors", src: "/images/bmo-logo.png" },
+  {
+    name: "Sold 100 Gives Back Foundation",
+    src: "/images/giveback-logo.png",
+  },
+  {
+    name: "Mid-Atlantic Government Recovery Agency Corporation",
+    src: "/images/mid-logo.png",
+  },
+  { name: "Autograph Solar", src: "/images/auto-logo.png" },
+  { name: "Businessmen Fellowship", src: "/images/bf-logo.png" },
+  { name: "Awkuzu Cultural Association", src: "/images/aca-logo.png" },
+  { name: "United Africa Advisory Board", src: "/images/uaab-logo.png" },
 ] as const;
 
 export default function AboutPage() {
