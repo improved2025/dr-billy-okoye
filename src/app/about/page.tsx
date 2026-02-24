@@ -1,11 +1,23 @@
 import Image from "next/image";
 
 const orgs = [
+  // Added (requested)
   { name: "Businessmen Fellowship", src: "/images/bf-logo.png" },
   { name: "Awkuzu Cultural Association", src: "/images/aca-logo.png" },
   {
     name: "Mid-Atlantic Government Recovery Agency Corporation",
     src: "/images/mid-logo.png",
+  },
+
+  // Existing
+  { name: "Sold 100 Real Estate Inc", src: "/images/sold-logo.png" },
+  { name: "BMO LLC General Contractors", src: "/images/bmo-logo.png" },
+  { name: "Sold 100 Gives Back Foundation", src: "/images/giveback-logo.png" },
+  { name: "Autograph Solar", src: "/images/auto-logo.png" },
+  { name: "United Africa Advisory Board", src: "/images/uaab-logo.png" },
+  {
+    name: "Maryland National Capital Park and Planning Commission - M-NCPPC",
+    src: "/images/mncppc-logo.png",
   },
 ] as const;
 
@@ -90,16 +102,31 @@ export default function AboutPage() {
               </p>
             </div>
 
+            {/* UPDATED: Affiliated Organizations */}
             <div className="mt-8 rounded-3xl border border-white/10 bg-white/[0.02] p-8 md:p-10 backdrop-blur-sm">
-              <p className="uppercase tracking-[0.34em] text-white/55 text-[11px]">
-                Affiliated Organizations
-              </p>
+              <div className="flex items-end justify-between gap-6">
+                <div>
+                  <p className="uppercase tracking-[0.34em] text-white/55 text-[11px]">
+                    Affiliated Organizations
+                  </p>
+                  <h3 className="mt-5 font-serif text-2xl md:text-3xl leading-[1.1]">
+                    Institutional and enterprise platforms
+                  </h3>
+                </div>
 
-              <div className="mt-7 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="hidden md:block text-[11px] uppercase tracking-[0.30em] text-white/40">
+                  Verified affiliations
+                </div>
+              </div>
+
+              <div className="mt-6 h-px w-16 bg-[#C9A24D]/80" />
+
+              {/* Grid (kept premium, just made it handle 9 items cleanly) */}
+              <div className="mt-8 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
                 {orgs.map((o) => (
                   <div
                     key={o.name}
-                    className="rounded-2xl border border-white/10 bg-black/20 p-5"
+                    className="group rounded-2xl border border-white/10 bg-black/20 p-5 hover:border-[#C9A24D]/25 transition"
                     title={o.name}
                   >
                     <div className="flex items-center gap-4">
@@ -108,13 +135,13 @@ export default function AboutPage() {
                           src={o.src}
                           alt={o.name}
                           fill
-                          className="object-contain opacity-90"
+                          className="object-contain opacity-90 group-hover:opacity-100 transition"
                           sizes="112px"
                         />
                       </div>
 
                       <div className="min-w-0">
-                        <div className="text-[11px] uppercase tracking-[0.30em] text-white/45">
+                        <div className="text-[11px] uppercase tracking-[0.30em] text-white/40">
                           Affiliation
                         </div>
                         <div className="mt-1 text-sm md:text-[15px] leading-snug text-white/80">
@@ -126,6 +153,14 @@ export default function AboutPage() {
                   </div>
                 ))}
               </div>
+
+              <div className="mt-10 h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+
+              <p className="mt-6 text-white/55 text-sm leading-relaxed">
+                Certain organizations may operate through separate public brands
+                and subsidiaries. This page reflects the primary entities tied
+                to Dr. Okoye’s leadership and service record.
+              </p>
             </div>
 
             <div className="mt-8 flex flex-wrap gap-3">

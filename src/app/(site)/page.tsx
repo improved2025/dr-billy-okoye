@@ -202,9 +202,12 @@ export default function Home() {
             strategic initiatives.
           </p>
 
-          <button className="border border-[#C9A24D]/75 px-12 py-5 rounded-full uppercase tracking-[0.34em] text-[11px] text-[#C9A24D] hover:bg-[#C9A24D]/10 transition">
+          <a
+            href="/consultation"
+            className="inline-flex items-center justify-center border border-[#C9A24D]/75 px-12 py-5 rounded-full uppercase tracking-[0.34em] text-[11px] text-[#C9A24D] hover:bg-[#C9A24D]/10 transition"
+          >
             Get in touch with Dr. Okoye
-          </button>
+          </a>
         </div>
       </section>
     </main>

@@ -23,9 +23,7 @@ export default function HeroRotator() {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    const t = setInterval(() => {
-      setIndex((v) => (v + 1) % slides.length);
-    }, 9500);
+    const t = setInterval(() => setIndex((v) => (v + 1) % slides.length), 9500);
     return () => clearInterval(t);
   }, []);
 
@@ -44,7 +42,6 @@ export default function HeroRotator() {
 
   return (
     <section className="relative w-full overflow-hidden min-h-[120vh]">
-      {/* Rotating background */}
       <AnimatePresence mode="wait">
         <motion.div
           key={index}
@@ -77,25 +74,27 @@ export default function HeroRotator() {
           <div className="absolute inset-0 bg-black/35" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/25 to-black/10" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/15 to-transparent" />
-
-          {/* soft gold trace */}
           <div className="absolute inset-0 opacity-70 bg-[radial-gradient(900px_520px_at_20%_18%,rgba(201,162,77,0.12),transparent_60%)]" />
         </motion.div>
       </AnimatePresence>
 
-      {/* Content */}
       <div className="relative z-10 min-h-[120vh]">
         <div className="px-6 md:px-14 lg:px-20">
-          {/* Lowered placement (keeps heads safe, feels premium) */}
-          <div className="pt-[40vh] md:pt-[44vh] lg:pt-[46vh] max-w-5xl">
-            {/* Strapline */}
-            <p className="uppercase tracking-[0.34em] text-white/70 text-[10px] md:text-xs">
-              Real Estate · Renewable Energy · Governance
-            </p>
+          {/* 
+            Mobile fix:
+            - push content lower on small screens so it doesn't sit on the eyes/face
+            - keep your desktop placement basically the same
+          */}
+          <div className="pt-[56vh] sm:pt-[52vh] md:pt-[44vh] lg:pt-[46vh] max-w-5xl">
+            {/* Strapline constrained + slightly tighter for premium alignment */}
+            <div className="max-w-[720px]">
+              <p className="uppercase tracking-[0.22em] text-white/65 text-[9px] sm:text-[10px] md:text-xs">
+                Real Estate · Renewable Energy · Governance · Mentor · Urban Developer
+              </p>
+            </div>
 
-            {/* Name + GRI (bigger + intentional) */}
-            <div className="mt-6 flex items-end gap-4 flex-wrap">
-              <h1 className="font-serif tracking-wide text-white leading-[0.95] text-4xl md:text-6xl lg:text-7xl">
+            <div className="mt-6 flex items-end gap-4 flex-wrap max-w-[900px]">
+              <h1 className="font-serif tracking-wide text-white leading-[0.95] text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
                 DR. BILLY OKOYE
               </h1>
 
@@ -111,11 +110,13 @@ export default function HeroRotator() {
               I build what lasts.
             </p>
 
-            {/* CTAs */}
             <div className="mt-10 flex flex-wrap items-center gap-4">
-              <button className="border border-[#C9A24D]/80 px-10 py-4 rounded-full uppercase tracking-[0.26em] text-[11px] text-[#C9A24D] hover:bg-[#C9A24D]/10 transition">
+              <Link
+                href="/consultation"
+                className="border border-[#C9A24D]/80 px-10 py-4 rounded-full uppercase tracking-[0.26em] text-[11px] text-[#C9A24D] hover:bg-[#C9A24D]/10 transition"
+              >
                 Request Private Consultation
-              </button>
+              </Link>
 
               <Link
                 href="/about"
