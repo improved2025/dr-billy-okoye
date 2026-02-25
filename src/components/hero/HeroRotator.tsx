@@ -12,10 +12,26 @@ type Slide = {
 };
 
 const slides: Slide[] = [
-  { src: "/images/hero1.jpeg", alt: "Dr. Billy Okoye portrait", focal: "50% 12%" },
-  { src: "/images/hero2.jpeg", alt: "Dr. Billy Okoye portrait close", focal: "50% 18%" },
-  { src: "/images/hero3.jpg", alt: "Dr. Billy Okoye in session", focal: "50% 22%" },
-  { src: "/images/hero4.jpg", alt: "Dr. Billy Okoye in session", focal: "50% 22%" },
+  {
+    src: "/images/hero1.jpeg",
+    alt: "Dr. Billy Okoye portrait",
+    focal: "50% 12%",
+  },
+  {
+    src: "/images/hero2.jpeg",
+    alt: "Dr. Billy Okoye portrait close",
+    focal: "50% 18%",
+  },
+  {
+    src: "/images/hero3.jpg",
+    alt: "Dr. Billy Okoye in session",
+    focal: "50% 22%",
+  },
+  {
+    src: "/images/hero4.jpg",
+    alt: "Dr. Billy Okoye in session",
+    focal: "50% 22%",
+  },
 ];
 
 export default function HeroRotator() {
@@ -41,7 +57,7 @@ export default function HeroRotator() {
   }, [index, reduceMotion]);
 
   return (
-    <section className="relative w-full overflow-hidden min-h-[120vh]">
+    <section className="relative w-full overflow-hidden min-h-[115vh] sm:min-h-[120vh]">
       <AnimatePresence mode="wait">
         <motion.div
           key={index}
@@ -78,18 +94,20 @@ export default function HeroRotator() {
         </motion.div>
       </AnimatePresence>
 
-      <div className="relative z-10 min-h-[120vh]">
-        <div className="px-6 md:px-14 lg:px-20">
-          {/* 
-            Mobile fix:
-            - push content lower on small screens so it doesn't sit on the eyes/face
-            - keep your desktop placement basically the same
+      <div className="relative z-10 min-h-[115vh] sm:min-h-[120vh]">
+        <div className="px-5 sm:px-6 md:px-14 lg:px-20">
+          {/*
+            Mobile + alignment fixes:
+            1) Push content lower on phones so it never sits on the face/eyes
+            2) Strapline width matches the name block (no awkward overhang)
+            3) Tighter tracking on strapline for premium alignment
           */}
-          <div className="pt-[56vh] sm:pt-[52vh] md:pt-[44vh] lg:pt-[46vh] max-w-5xl">
-            {/* Strapline constrained + slightly tighter for premium alignment */}
+          <div className="pt-[60vh] sm:pt-[54vh] md:pt-[44vh] lg:pt-[46vh] max-w-5xl">
+            {/* Strapline aligned to the same column width as name */}
             <div className="max-w-[720px]">
-              <p className="uppercase tracking-[0.22em] text-white/65 text-[9px] sm:text-[10px] md:text-xs">
-                Real Estate · Renewable Energy · Governance · Mentor · Urban Developer
+              <p className="uppercase tracking-[0.18em] sm:tracking-[0.22em] text-white/65 text-[9px] sm:text-[10px] md:text-xs">
+                Real Estate · Renewable Energy · Governance · Mentor · Urban
+                Developer
               </p>
             </div>
 

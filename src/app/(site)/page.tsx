@@ -88,7 +88,7 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Stage wrapper (adds depth + premium separation) */}
+          {/* Stage wrapper */}
           <div className="mt-14 rounded-3xl border border-white/10 bg-white/[0.02] p-4 md:p-8 backdrop-blur-sm">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {pillars.map((p) => (
@@ -103,6 +103,8 @@ export default function Home() {
                     "shadow-[0_60px_160px_rgba(0,0,0,0.65)]",
                     "transition-all duration-500",
                     "hover:-translate-y-2",
+                    // Mobile polish: tighter padding + better long-note wrapping
+                    "focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A24D]/40",
                   ].join(" ")}
                 >
                   {/* gold ambient bloom */}
@@ -111,31 +113,31 @@ export default function Home() {
                     bg-[radial-gradient(40%_40%_at_30%_20%,rgba(201,162,77,0.18)_0%,rgba(0,0,0,0)_60%)]"
                   />
 
-                  <div className="relative p-10">
-                    <div className="flex items-start justify-between gap-6">
-                      <span className="text-[11px] uppercase tracking-[0.30em] text-white/40">
+                  <div className="relative p-7 sm:p-8 md:p-10">
+                    <div className="flex items-start justify-between gap-5">
+                      <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.30em] text-white/40">
                         Pillar
                       </span>
 
-                      {/* note (supports long names, stays premium) */}
-                      <span className="text-[11px] uppercase tracking-[0.28em] text-[#C9A24D]/85 text-right leading-snug max-w-[260px]">
+                      {/* note: mobile-friendly width + balanced casing */}
+                      <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.26em] text-[#C9A24D]/85 text-right leading-snug max-w-[210px] sm:max-w-[260px]">
                         {p.note}
                       </span>
                     </div>
 
-                    <h4 className="mt-8 font-serif text-3xl leading-[1.1] tracking-[-0.01em]">
+                    <h4 className="mt-7 sm:mt-8 font-serif text-2xl sm:text-3xl leading-[1.1] tracking-[-0.01em]">
                       {p.title}
                     </h4>
 
-                    <p className="mt-6 text-white/70 leading-relaxed max-w-[44ch]">
+                    <p className="mt-5 sm:mt-6 text-white/70 leading-relaxed max-w-[44ch] text-[15px] sm:text-base">
                       {p.subtitle}
                     </p>
 
-                    <div className="mt-10 flex items-center gap-4">
+                    <div className="mt-8 sm:mt-10 flex items-center gap-4">
                       <span className="inline-flex items-center justify-center h-10 w-10 rounded-full border border-[#C9A24D]/50 text-[#C9A24D] transition group-hover:border-[#C9A24D]">
                         ↗
                       </span>
-                      <span className="uppercase tracking-[0.34em] text-[11px] text-[#C9A24D]">
+                      <span className="uppercase tracking-[0.34em] text-[10px] sm:text-[11px] text-[#C9A24D]">
                         {p.cta}
                       </span>
                     </div>
@@ -149,7 +151,7 @@ export default function Home() {
         </section>
       </Reveal>
 
-      {/* DISTINCT MINI STRIP: Honors & Awards + Publications */}
+      {/* DISTINCT MINI STRIP */}
       <Reveal delay={0.06}>
         <section className="px-6 md:px-14 lg:px-20 pb-20 md:pb-24">
           <div className="mx-auto max-w-7xl rounded-3xl border border-white/10 bg-white/[0.015] p-6 md:p-8 backdrop-blur-sm">
@@ -194,7 +196,7 @@ export default function Home() {
 
       <SectionRule />
 
-      {/* SOCIAL PRESENCE (icons) */}
+      {/* SOCIAL */}
       <Reveal delay={0.08}>
         <SocialPresence />
       </Reveal>
@@ -202,7 +204,7 @@ export default function Home() {
       {/* FINAL CTA */}
       <Reveal delay={0.1}>
         <section className="px-6 md:px-14 lg:px-20 pb-40">
-          <div className="text-center rounded-3xl border border-white/10 bg-white/[0.02] py-20 px-8 backdrop-blur-sm">
+          <div className="text-center rounded-3xl border border-white/10 bg-white/[0.02] py-16 sm:py-20 px-6 sm:px-8 backdrop-blur-sm">
             <h2 className="font-serif text-4xl md:text-6xl mb-8 leading-[1.05]">
               Let’s build something serious.
             </h2>
@@ -214,7 +216,7 @@ export default function Home() {
 
             <a
               href="/consultation"
-              className="inline-flex items-center justify-center border border-[#C9A24D]/75 px-12 py-5 rounded-full uppercase tracking-[0.34em] text-[11px] text-[#C9A24D] hover:bg-[#C9A24D]/10 transition"
+              className="inline-flex items-center justify-center border border-[#C9A24D]/75 px-10 sm:px-12 py-5 rounded-full uppercase tracking-[0.34em] text-[11px] text-[#C9A24D] hover:bg-[#C9A24D]/10 transition"
             >
               Get in touch with Dr. Okoye
             </a>
