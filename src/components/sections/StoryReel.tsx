@@ -110,7 +110,6 @@ export default function StoryReel() {
         </div>
 
         <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] shadow-[0_40px_120px_rgba(0,0,0,0.65)]">
-          {/* fixed stage height, no jump */}
           <div
             className={[
               "relative",
@@ -128,7 +127,6 @@ export default function StoryReel() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
               >
-                {/* media layer */}
                 <motion.div
                   className="absolute inset-0"
                   animate={pan as any}
@@ -165,16 +163,20 @@ export default function StoryReel() {
                   )}
                 </motion.div>
 
-                {/* ✅ UNIFORM, FULL-FRAME OVERLAYS (match HeroRotator) */}
-                <div className="absolute inset-0 bg-black/28" />
+                {/* Hero-style overlay: FULL FRAME, clean and consistent */}
+                <div className="absolute inset-0 bg-black/35" />
                 <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/25 to-black/10" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/18 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/15 to-transparent" />
                 <div className="absolute inset-0 opacity-70 bg-[radial-gradient(900px_520px_at_20%_18%,rgba(201,162,77,0.12),transparent_60%)]" />
 
-                {/* label: fixed premium dock, always same position */}
+                {/* ✅ FIXED: full-width bottom band so edges are covered */}
                 {slide.label ? (
-                  <div className="pointer-events-none absolute inset-x-0 bottom-0 p-6 md:p-7">
-                    <div className="rounded-2xl border border-white/10 bg-black/35 backdrop-blur-md px-6 py-5">
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0">
+                    {/* full-width cinematic band */}
+                    <div className="absolute inset-x-0 bottom-0 h-32 md:h-36 bg-gradient-to-t from-black/75 via-black/35 to-transparent" />
+
+                    {/* content sits inside padding, but band stays full width */}
+                    <div className="relative px-6 md:px-7 pb-6 md:pb-7 pt-10 md:pt-12">
                       <div className="text-[11px] tracking-[0.34em] uppercase text-white/75">
                         {slide.label}
                       </div>
