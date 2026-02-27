@@ -17,6 +17,7 @@ type Slide =
       src: string;
       poster?: string;
       label?: string;
+      objectPosition?: string; // ✅ added (so video can align too)
     };
 
 // Uses your real files:
@@ -35,6 +36,7 @@ const slides: Slide[] = [
     src: "/videos/story1.mp4",
     poster: "/images/story2.jpg",
     label: "Commissioner's Swearing in",
+    objectPosition: "50% 18%",
   },
   {
     type: "image",
@@ -48,6 +50,7 @@ const slides: Slide[] = [
     src: "/videos/story2.mp4",
     poster: "/images/story3.jpg",
     label: "Community Investment",
+    objectPosition: "50% 20%",
   },
   {
     type: "image",
@@ -59,7 +62,7 @@ const slides: Slide[] = [
   {
     type: "image",
     src: "/images/story4.jpg",
-    alt: "Community",
+    alt: "Public Service",
     label: "Public Service",
     objectPosition: "50% 22%",
   },
@@ -91,6 +94,8 @@ export default function StoryReel() {
     return { scale: [1.06, 1.14], x: [-10, 10], y: [-5, 5] };
   }, [reduceMotion]);
 
+  const stageObjectPos = slide.objectPosition ?? "50% 20%";
+
   return (
     <section className="px-6 md:px-14 lg:px-20 py-24 md:py-32">
       <div className="mx-auto max-w-7xl">
@@ -107,8 +112,18 @@ export default function StoryReel() {
           </p>
         </div>
 
+        {/* ✅ FIX: lock one consistent “stage height” so bottoms never jump */}
         <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] shadow-[0_40px_120px_rgba(0,0,0,0.65)]">
-          <div className="relative h-[520px] md:h-[620px] lg:h-[720px]">
+          <div
+            className={[
+              "relative",
+              // mobile uses viewport-height for better cinematic framing
+              "h-[62vh] min-h-[520px] max-h-[720px]",
+              // desktop uses consistent fixed height (no reflow)
+              "md:h-[620px] md:min-h-0 md:max-h-none",
+              "lg:h-[720px]",
+            ].join(" ")}
+          >
             <AnimatePresence mode="wait">
               <motion.div
                 key={`${i}-${tick}`}
@@ -134,19 +149,21 @@ export default function StoryReel() {
                       alt={slide.alt}
                       fill
                       className="object-cover"
-                      sizes="(max-width: 768px) 100vw, 80vw"
-                      style={{ objectPosition: slide.objectPosition ?? "50% 20%" }}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1280px) 90vw, 1100px"
+                      style={{ objectPosition: stageObjectPos }}
                       priority={i === 0}
                     />
                   ) : (
+                    // ✅ FIX: video must fill with absolute inset + object-cover
                     <video
-                      className="h-full w-full object-cover"
+                      className="absolute inset-0 h-full w-full object-cover"
                       autoPlay
                       muted
                       loop
                       playsInline
                       preload="metadata"
                       poster={slide.poster}
+                      style={{ objectPosition: stageObjectPos }}
                     >
                       <source src={slide.src} type="video/mp4" />
                     </video>
@@ -158,13 +175,15 @@ export default function StoryReel() {
                 <div className="absolute inset-0 bg-[linear-gradient(to_top,rgba(0,0,0,0.86)_0%,rgba(0,0,0,0.22)_55%,rgba(0,0,0,0.06)_100%)]" />
                 <div className="absolute inset-0 bg-[radial-gradient(60%_60%_at_45%_35%,rgba(201,162,77,0.22)_0%,rgba(0,0,0,0)_62%)] opacity-0 hover:opacity-100 transition-opacity duration-500" />
 
-                {/* label */}
+                {/* ✅ FIX: label sits in a fixed overlay band so it never appears “higher/lower” per slide */}
                 {slide.label ? (
-                  <div className="absolute left-7 bottom-7 right-7">
-                    <div className="text-[11px] tracking-[0.34em] uppercase text-white/75">
-                      {slide.label}
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 p-6 md:p-7">
+                    <div className="rounded-2xl border border-white/10 bg-black/35 backdrop-blur-md px-6 py-5">
+                      <div className="text-[11px] tracking-[0.34em] uppercase text-white/75">
+                        {slide.label}
+                      </div>
+                      <div className="mt-3 h-px w-14 bg-[#C9A24D]/85" />
                     </div>
-                    <div className="mt-3 h-px w-14 bg-[#C9A24D]/85" />
                   </div>
                 ) : null}
               </motion.div>
