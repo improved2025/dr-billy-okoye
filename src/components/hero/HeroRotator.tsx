@@ -125,7 +125,7 @@ export default function HeroRotator() {
             </div>
 
             <p className="mt-4 text-white/70 italic text-base md:text-lg">
-              I build what lasts.
+              Preparation, Collaboration, and Accountability Are the Foundations of Good Governance.
             </p>
 
             <div className="mt-10 flex flex-wrap items-center gap-4">

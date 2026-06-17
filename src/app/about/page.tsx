@@ -80,7 +80,7 @@ export default function AboutPage() {
                 Managing Director of multiple companies spanning construction,
                 collections, and international business services. His leadership
                 extends into public service, including Board Chairman of Sold
-                100 Gives Back Foundation and Honorable Commissioner with the
+                100 Gives Back Foundation and Honorable Vice Chairman of the
                 Maryland-National Capital Park and Planning Commission, where he
                 contributes to governance, ethics, and regional development
                 strategy.
