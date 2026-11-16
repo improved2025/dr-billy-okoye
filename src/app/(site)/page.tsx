@@ -218,7 +218,7 @@ export default function Home() {
               href="/consultation"
               className="inline-flex items-center justify-center border border-[#C9A24D]/75 px-10 sm:px-12 py-5 rounded-full uppercase tracking-[0.34em] text-[11px] text-[#C9A24D] hover:bg-[#C9A24D]/10 transition"
             >
-              Get in touch with Dr. Okoye
+              Book an Executive Session
             </a>
           </div>
         </section>

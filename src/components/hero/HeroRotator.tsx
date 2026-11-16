@@ -133,7 +133,7 @@ export default function HeroRotator() {
                 href="/consultation"
                 className="border border-[#C9A24D]/80 px-10 py-4 rounded-full uppercase tracking-[0.26em] text-[11px] text-[#C9A24D] hover:bg-[#C9A24D]/10 transition"
               >
-                Request Private Consultation
+                Book a Private Session
               </Link>
 
               <Link
