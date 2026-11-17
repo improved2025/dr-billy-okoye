@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
-/* html gets its own base color so the body gradient paints once across the
-   full page instead of repeating every screen height */
-html { min-height: 100%; background-color: #07070A; }
-body { min-height: 100%; }
+html, body { height: 100%; }
+
+/* Pin the page gradient to the viewport so it doesn't repeat in bands
+   down long pages. Keeps the body transparent to LuxBackground (-z-10). */
+body { background-attachment: fixed; }
