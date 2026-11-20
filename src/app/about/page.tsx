@@ -61,14 +61,17 @@ export default function AboutPage() {
                 and clean-energy entrepreneur with over two decades of
                 experience building high-performing organizations across
                 brokerage, construction, property development, and renewable
-                infrastructure.
+                infrastructure. He serves as Honorable Vice Chairman of the
+                Maryland-National Capital Park and Planning Commission, where he
+                contributes to governance, ethics, and regional development
+                strategy.
               </p>
 
               <p className="mt-5 text-white/70 leading-relaxed">
                 He is the Founder and Principal Broker of Sold 100 Real Estate
-                Inc., leading a multi-state operation with 50+ agents and more
-                than $250M in closed transactions across Maryland, Washington
-                DC, and Virginia. His portfolio includes residential and
+                Inc., leading a multi-state operation with 50+ agents and over
+                500 real estate transactions across Maryland, Washington DC,
+                and Virginia. His portfolio includes residential and
                 commercial brokerage, distressed asset redevelopment, land
                 acquisition, and large-scale investment projects, driven by
                 data-informed valuation systems and disciplined execution.
@@ -79,11 +82,11 @@ export default function AboutPage() {
                 delivering megawatt-scale clean energy solutions, and Group
                 Managing Director of multiple companies spanning construction,
                 collections, and international business services. His leadership
-                extends into public service, including Board Chairman of Sold
-                100 Gives Back Foundation and Honorable Vice Chairman of the
-                Maryland-National Capital Park and Planning Commission, where he
-                contributes to governance, ethics, and regional development
-                strategy.
+                extends into public service as Board Chairman of Sold 100
+                Gives Back Foundation. In September 2026, the United States Air
+                Force inducted him as an Honorary Commander at Joint Base
+                Anacostia-Bolling, where he serves alongside the 11th Civil
+                Engineer Squadron.
               </p>
 
               <p className="mt-5 text-white/70 leading-relaxed">
@@ -100,6 +103,39 @@ export default function AboutPage() {
                 committed to economic empowerment, ethical leadership, and
                 building platforms that create lasting impact.
               </p>
+            </div>
+
+            {/* Distinction: Honorary Commander */}
+            <div className="mt-8 relative overflow-hidden rounded-3xl border border-[#C9A24D]/25 bg-white/[0.02] p-8 md:p-10 backdrop-blur-sm">
+              <div className="pointer-events-none absolute -left-24 top-1/2 -translate-y-1/2 h-72 w-72 rounded-full bg-[radial-gradient(circle,rgba(201,162,77,0.18),transparent_65%)]" />
+              <div className="relative flex flex-col sm:flex-row items-center sm:items-center gap-8">
+                <div className="relative h-40 w-40 md:h-48 md:w-48 shrink-0 drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)]">
+                  <Image
+                    src="/images/honorary-commander-coin.webp"
+                    alt="Honorary Commander challenge coin, 11th Civil Engineer Squadron, Joint Base Anacostia-Bolling, United States Air Force"
+                    fill
+                    className="object-contain"
+                    sizes="192px"
+                  />
+                </div>
+                <div className="text-center sm:text-left">
+                  <p className="uppercase tracking-[0.34em] text-[#C9A24D] text-[11px]">
+                    Distinction · 2026
+                  </p>
+                  <h3 className="mt-4 font-serif text-2xl md:text-3xl leading-[1.1]">
+                    Honorary Commander
+                  </h3>
+                  <p className="mt-3 text-white/75 leading-relaxed">
+                    United States Air Force, 11th Civil Engineer Squadron,
+                    Joint Base Anacostia-Bolling, Washington, D.C.
+                  </p>
+                  <div className="mt-5 mx-auto sm:mx-0 h-px w-12 bg-[#C9A24D]/70" />
+                  <p className="mt-5 text-white/50 text-sm leading-relaxed">
+                    Inducted September 28, 2026 by Joint Base Anacostia-Bolling
+                    and the 11th Wing.
+                  </p>
+                </div>
+              </div>
             </div>
 
             {/* UPDATED: Affiliated Organizations */}

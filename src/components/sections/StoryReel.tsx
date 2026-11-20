@@ -63,6 +63,13 @@ const slides: Slide[] = [
     label: "Public Service",
     objectPosition: "50% 22%",
   },
+  {
+    type: "image",
+    src: "/images/story5.jpg",
+    alt: "Dr. Billy Okoye holding his certificate of induction as Honorary Commander, flanked by the U.S. Air Force Honor Guard at Joint Base Anacostia-Bolling",
+    label: "Honorary Commander, U.S. Air Force",
+    objectPosition: "50% 30%",
+  },
 ];
 
 function durationMs(s: Slide) {
